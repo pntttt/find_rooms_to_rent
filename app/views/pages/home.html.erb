@@ -1,0 +1,54 @@
+<% provide :title, t("home") %>
+<div class="row">
+  <div class="col-md-7 banner">
+    <h1><%= t("band") %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <input class="form-control" type="text", placeholder="<%= t("search_q") %>">
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" type="text", placeholder="<%= t("start_date") %>">
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" type="text", placeholder="<%= t("end_date") %>">
+  </div>
+</div>
+<br/><br/>
+
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <button class="btn btn-normal btn-block"><%= t("search") %></button>
+  </div>
+</div>
+
+<br/><hr/><br/>
+
+<!-- CITIES -->
+<div><h3><%= t("cities") %></h3></div>
+<br/>
+
+<div class="row">
+  <div class="col-md-3 col-sm-12">
+    <a href="#">
+      <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
+    </a>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <a href="#">
+      <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
+    </a>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <a href="#">
+      <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
+    </a>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <a href="#">
+      <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
+    </a>
+  </div>
+</div>
