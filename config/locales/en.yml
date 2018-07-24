@@ -15,3 +15,7 @@ en:
   end_date: "End Date"
   band: "Find homes on AirPnp"
   cities: "Cities"
+  create_account: "Create account"
+  confirm: "Confirmation"
+  new_user: "New user?"
+  remember_me: "Remember me"

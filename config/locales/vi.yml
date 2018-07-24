@@ -1,4 +1,4 @@
-en:
+vi:
   home: "Trang chủ"
   become_a_host: "Cho thuê nhà"
   login: "Đăng nhập"
@@ -14,3 +14,6 @@ en:
   end_date: "Ngày kết thúc"
   band: "Tim nhà với AirPnP"
   cities: "Thành phố"
+  create_account: "Tạo tài khoản"
+  confirm: "Nhập lại mật khẩu"
+  new_user: "Người dùng mới?"

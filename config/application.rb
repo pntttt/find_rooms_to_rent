@@ -16,7 +16,7 @@ Bundler.require(*Rails.groups)
 module FindRoomsToRent
   class Application < Rails::Application
     config.load_defaults 5.1
-    config.i18n.default_locale = :vi
+    config.i18n.default_locale = :en
     config.generators.system_tests = nil
   end
 end

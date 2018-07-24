@@ -18,23 +18,27 @@
             <%= t("become_a_host") %>
           </a>
         </li>
-          <li><a href=""><%= t("login") %></a></li>
-          <li><a href=""><%= t("sign_up") %></a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                  role="button" aria-haspopup="true" aria-expanded="false">
-                  <img src="" alt="">
-                  pnt <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><%= t("manage_listing") %></a></li>
-              <li><a href="#"><%= t("list_your_space") %></a></li>
-              <li><a href="#"><%= t("your_trips") %></a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#"><%= t("edit_profile") %></a></li>
-              <li><a href="#"><%= t("logout") %></a></li>
-            </ul>
-          </li>
+          <% if logged_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="" alt="">
+                    <%= current_user.name %> <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><%= t("manage_listing") %></a></li>
+                <li><a href="#"><%= t("list_your_space") %></a></li>
+                <li><a href="#"><%= t("your_trips") %></a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#"><%= t("edit_profile") %></a></li>
+                <li><%= link_to t(".logout"), logout_path,
+                  method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to t(".login"), login_path %></li>
+            <li><%= link_to t(".sign_up"), signup_path %></li>
+          <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
