@@ -1,1 +1,51 @@
-<h1><%= @user.name %></h1>
+<main id="site-content" role="main" tabindex="-1">
+  <div class="page-container page-container-responsive space-top-4 space-8">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 hide-sm">
+        <div id="user" class="space-4">
+          <div>
+            <div id="user-media-container" class="space-2">
+              <%= image_tag avatar_url(@user), class: "avatar-full" %>
+            </div>
+          </div>
+        </div>
+        <div class="panel space-4">
+            <div class="panel-header"><%= t "verified_info" %></div>
+            <div class="panel-body">
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-8 col-sm-s12">
+        <div class="row space-4">
+          <div class="col-sm-8 col-sm-12 col-lg-12">
+            <h1> <%= t "greet", name: @user.name %></h1>
+            <div class="h5 space-top-2">
+              <span class="text-normal"><%= t "joined",
+                date: @user.created_at %></span>
+            </div>
+            <div class="text-muted space-top-2">
+              <div class="flag-widget text-small">
+                <button type="button"
+                  class="btn-link btn-link--reset btn-link--icon">
+                  <i class="far fa-flag h4"></i>
+                  <span class="link-icon__text">
+                    <span><%= t "report_user" %></span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div class="edit_profile_container space-3">
+              <% if current_user? @user %>
+                <%= link_to t("edit_profile"), edit_user_path,
+                  {class: "btn btn-normal"} %>
+              <% end %>
+            </div>
+          </div>
+          <div class="space-top-2">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

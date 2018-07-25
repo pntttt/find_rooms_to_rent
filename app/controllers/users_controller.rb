@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: :show
+  before_action :get_user, only: %i(show edit update destroy)
+  before_action :verified_user, only: %i(edit update)
 
   def show; end
 
@@ -17,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update; end
+
   private
 
   def user_params
@@ -27,6 +32,11 @@ class UsersController < ApplicationController
   def get_user
     @user = User.find_by id: params[:id]
     return if @user
-    redirect_to :signup
+    flash[:alert] = t "noti_not_found"
+    redirect_to root_url
+  end
+
+  def verified_user
+    redirect_to root_url unless current_user? @user
   end
 end

@@ -30,7 +30,8 @@
                 <li><a href="#"><%= t("list_your_space") %></a></li>
                 <li><a href="#"><%= t("your_trips") %></a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><%= t("edit_profile") %></a></li>
+                <li><%= link_to t("edit_profile"),
+                  edit_user_path(current_user) %></li>
                 <li><%= link_to t(".logout"), logout_path,
                   method: :delete %></li>
               </ul>

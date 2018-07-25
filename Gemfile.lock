@@ -95,6 +95,8 @@ GEM
       dry-types (~> 0.13.1)
     erubi (1.7.1)
     execjs (2.7.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     ffi (1.9.25)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
@@ -239,6 +241,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   config
+  faker
   font-awesome-rails
   geocoder (~> 1.4)
   jbuilder (~> 2.5)
