@@ -10,3 +10,6 @@ photo:
   size:
     MEDIUM: "300x300>"
     THUMB: "100x100>"
+room:
+  samples:
+    LIMIT: 6

@@ -8,6 +8,7 @@ class Reservation < ApplicationRecord
     where id: reservation_id, room_id: room_id}
   scope :check_host_reservation, ->(reservation_id, room_id, guest_id){
     where id: reservation_id, room_id: room_id, user_id: guest_id}
+
   belongs_to :user
   belongs_to :room
 end
