@@ -5,10 +5,14 @@ class RoomsController < ApplicationController
 
   def show
     unless @room&.active then
-      flash[:alert] = t("noti_not_found") 
+      flash[:alert] = t("noti_not_found")
       redirect_to root_path
-    end  
+    end
     @photos = @room.photos
+  end
+
+  def index
+    @rooms = current_user.rooms
   end
 
   def new
