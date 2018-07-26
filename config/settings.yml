@@ -5,3 +5,8 @@ user:
     MAX_LENGTH: 100
   password:
     MIN_LENGTH: 6
+
+photo:
+  size:
+    MEDIUM: "300x300>"
+    THUMD: "100x100>"
