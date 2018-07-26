@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724034249) do
+ActiveRecord::Schema.define(version: 20180725020603) do
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "room_id"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["room_id"], name: "index_photos_on_room_id"
   end
 
@@ -66,6 +70,10 @@ ActiveRecord::Schema.define(version: 20180724034249) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "accommodate"
+    t.text "summary"
+    t.boolean "active"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
