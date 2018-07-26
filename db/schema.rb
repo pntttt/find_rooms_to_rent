@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725020603) do
+ActiveRecord::Schema.define(version: 20180726080001) do
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "room_id"
@@ -65,8 +65,6 @@ ActiveRecord::Schema.define(version: 20180725020603) do
     t.boolean "is_heating"
     t.boolean "is_internet"
     t.integer "price"
-    t.float "lat", limit: 24
-    t.float "lon", limit: 24
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,6 +72,8 @@ ActiveRecord::Schema.define(version: 20180725020603) do
     t.string "accommodate"
     t.text "summary"
     t.boolean "active"
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
