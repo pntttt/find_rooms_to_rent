@@ -9,4 +9,4 @@ user:
 photo:
   size:
     MEDIUM: "300x300>"
-    THUMD: "100x100>"
+    THUMB: "100x100>"
