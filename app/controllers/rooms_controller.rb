@@ -11,10 +11,29 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.build room_params
     if @room.save
       redirect_to listing_room_path(@room), notice: t("noti_saved")
-    else  
+    else
       flash[:alert] = t("noti_error")
       render :new
-    end  
+    end
+  end
+
+  def update
+    if @room.update room_params
+      if room_params[:active] == "true"
+        flash[:notice] = t("noti_saved")
+        render :show
+      else
+        redirect_back fallback_location: request.referer
+      end
+      flash[:notice] = t("noti_saved")
+    else
+      flash[:alert] = t("noti_error")
+      redirect_back fallback_location: request.referer
+    end
+  end
+
+  def photo_upload
+    @photos = @room.photos
   end
 
   private
