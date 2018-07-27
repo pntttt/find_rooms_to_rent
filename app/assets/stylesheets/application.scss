@@ -218,13 +218,52 @@ a {
 }
 
 // ROOM SHOW
-.amenities li {
-  margin-bottom: 10px;
-  font-size: 16px;
-  list-style-type: none;
+.amenities {
+  li{
+    margin-bottom: 10px;
+    font-size: 16px;
+    list-style-type: none;
+  }
   .text-line-through {
     text-decoration: line-through;
     color: rgba(0,0,0,0.45);
     font-size: 14px;
   }
+}
+
+.testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .row > .col-md-4 {
+  display: inline-block;
+  float: none;
+}
+
+// RESERVATIONS
+.reservation-table {
+  td{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dce0e0;
+    padding: 10px;
+  }
+  .total td {
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+  }
+}
+
+.form-control.datepicker {
+  color: #00A699;
+  background-color: white;
+  border: 1px solid #00A699;
+  text-align: center;
+}
+
+.message-alert {
+  color: #d43242;
+  font-size: 14px;
+  padding-top: 10px;
 }

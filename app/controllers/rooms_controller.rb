@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :load_room, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorised?, except: [:index, :new, :create, :show]
+  before_action :is_authorised?, only: [:update]
 
   def show
     unless @room&.active then
@@ -48,6 +48,21 @@ class RoomsController < ApplicationController
     @photos = @room.photos
   end
 
+  def preload
+    today = Date.today
+    reservations = @room.reservations.preload_list today
+    render json: reservations
+  end
+
+  def preview
+    start_date = Date.parse params[:start_date]
+    end_date = Date.parse params[:end_date]
+    output = {
+      conflict: is_conflict(start_date, end_date, @room)
+    }
+    render json: output
+  end
+
   private
   def load_room
     @room = Room.find_by id: params[:id]
@@ -67,5 +82,10 @@ class RoomsController < ApplicationController
   def is_authorised?
     redirect_to root_path, alert: t("noti_permission") unless
     current_user.id == @room.user_id
+  end
+
+  def is_conflict(start_date, end_date, room)
+    check = room.reservations.conflict_list start_date, end_date
+    check.size > 0? true : false
   end
 end

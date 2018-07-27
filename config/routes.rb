@@ -14,8 +14,11 @@ Rails.application.routes.draw do
       get "amenities", to: "amenities#edit"
       get "location", to: "locations#edit"
       get "photo_upload"
+      get "preload"
+      get "preview"
     end
     resources :photos, only: [:create, :destroy]
+    resources :reservations, only: [:create]
   end
   resources :reservations, only: [:index]
   resources :trips, only: [:index]

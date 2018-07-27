@@ -4,17 +4,15 @@
     <span class="pull-right"><%= t"per_night" %></span>
   </div>
   <div class="panel-body">
-    <form action="">
+    <%= form_for([@room, @room.reservations.new]) do |f| %>
       <div class="row">
         <div class="col-md-6">
           <label><%= t"check_in" %></label>
-          <input type="text" placeholder="<%= t"start_date" %>"
-            class="form-control datepicker">
+          <%= f.text_field :start_date, readonly: true, placeholder: t("start_date"), class: "form-control datepicker" %>
         </div>
         <div class="col-md-6">
           <label><%= t"check_out" %></label>
-          <input type="text" placeholder="<%= t"end_date" %>"
-            class="form-control datepicker">
+          <%= f.text_field :end_date, readonly: true, placeholder: t("end_date"), class: "form-control datepicker", disabled: true %>          
         </div>
       </div>
       <h4 class="message-alert text-center"><span id="message"></span></h4>
@@ -37,9 +35,9 @@
         </table>
       </div>
       <br/>
-      <button type="submit" class: "btn btn-normal btn-block">
-        <%= t"book_now" %>
-      </button>
-    </form>
+      <%= f.submit t("book_now"), id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+    <% end %>
   </div>
 </div>
+
+<%= render partial: "reservations/date_picker", formats: [:js] %>
