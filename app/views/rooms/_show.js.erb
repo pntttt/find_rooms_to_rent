@@ -19,3 +19,11 @@
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @room.average_rating %>
+  });
+</script>

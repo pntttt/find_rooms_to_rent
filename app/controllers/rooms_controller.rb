@@ -9,6 +9,7 @@ class RoomsController < ApplicationController
       redirect_to root_path
     end
     @photos = @room.photos
+    @guest_reviews = @room.guest_reviews
   end
 
   def index

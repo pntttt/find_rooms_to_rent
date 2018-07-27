@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: [:index]
   resources :trips, only: [:index]
+
+  resources :guest_reviews, only: [:create, :destroy]
+  resources :host_reviews, only: [:create, :destroy]
 end

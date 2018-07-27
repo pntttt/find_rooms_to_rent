@@ -19,4 +19,8 @@ class Room < ApplicationRecord
     return photos[0].image.url size unless photos.empty?
     "blank.jpg"
   end
+
+  def average_rating
+    guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
+  end
 end

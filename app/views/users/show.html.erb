@@ -45,6 +45,16 @@
             <p></p>
           </div>
         </div>
+        <h4><%= t"guest_review" %> (<%= @guest_reviews.count %>)</h4>
+    <div class="row">
+      <%= render "reviews/guest_list" %>
+    </div>
+    <br/>
+
+    <h4><%= t"host_review" %> (<%= @host_reviews.count %>)</h4>
+    <div class="row">
+      <%= render "reviews/host_list" %>
+    </div>
       </div>
     </div>
   </div>

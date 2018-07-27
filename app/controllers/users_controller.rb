@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_action :get_user, only: %i(show edit update destroy)
   before_action :verified_user, only: %i(edit update)
 
-  def show; end
+  def show
+    @guest_reviews = Review.guest_review @user.id
+    @host_reviews = Review.host_review @user.id
+  end
 
   def new
     @user = User.new
