@@ -1,0 +1,29 @@
+<main id="site-content" role="main" tabindex="-1">
+  <div class="page-container page-container-responsive space-top-4 space-8">
+    <div class="row">
+      <div class="col-md-3 space-sm-4">
+        <div class="sidenav">
+          <ul class="sidebar-list">
+            <li class="sidebar-item">
+              <%= link_to t("edit_profile"), edit_user_path,
+                {class: "sidenav-item"}%>
+            </li>
+            <li class="sidebar-item">
+              <%= link_to t("verification"), javascript:void(0),
+                {class: "sidenav-item"}%>
+            </li>
+            <li class="sidebar-item">
+              <%= link_to t("reviews"), javascript:void(0),
+                {class: "sidenav-item"}%>
+            </li>
+          </ul>
+        </div>
+        <%= link_to t("view_profile"), @user,
+          {class: "btn btn-normal space-top-4"} %>
+      </div>
+      <div class="col-md-9">
+        <%= render "form" %>
+      </div>
+    </div>
+  </div>
+</main>

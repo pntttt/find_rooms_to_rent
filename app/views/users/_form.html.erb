@@ -1,0 +1,9 @@
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :phone_number %>
+  <%= f.email_field :phone_number, class: "form-control" %>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
