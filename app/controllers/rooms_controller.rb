@@ -1,7 +1,15 @@
 class RoomsController < ApplicationController
   before_action :load_room, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorised?, except: [:index, :new, :create]
+  before_action :is_authorised?, except: [:index, :new, :create, :show]
+
+  def show
+    unless @room&.active then
+      flash[:alert] = t("noti_not_found") 
+      redirect_to root_path
+    end  
+    @photos = @room.photos
+  end
 
   def new
     @room = current_user.rooms.build
@@ -21,7 +29,7 @@ class RoomsController < ApplicationController
     if @room.update room_params
       if room_params[:active] == "true"
         flash[:notice] = t("noti_saved")
-        render :show
+        redirect_to room_path
       else
         redirect_back fallback_location: request.referer
       end

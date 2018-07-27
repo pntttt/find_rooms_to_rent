@@ -55,5 +55,12 @@ en:
   price: "Price"
   publish: "Publish"
   unpublish: "Unpublish"
-
-
+  guest: "Guest"
+  about_this_listing: "About This Listing"
+  near_by: "Near By"
+  per_night: "Per Night"
+  check_in: "Check In"
+  check_out: "Check Out"
+  night: "Night"
+  total: "Total"
+  book_now: "Book Now"
