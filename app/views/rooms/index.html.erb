@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to t("yout_rooms"), rooms_path,
+        class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to t("your_reservations"),
+        reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to t("your_trips"),
+        trips_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= t "listing" %>
+      </div>
+      <div class="panel-body">
+
+        <% @rooms.each do |room| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= image_tag room.cover_photo(:thumb) %>
+            </div>
+            <div class="col-md-7">
+              <h4><%= room.name %></h4>
+            </div>
+            <div class="col-md-3 right">
+              <%= link_to t("update"), listing_room_path(room), class: "btn btn-form" %>
+            </div>
+          </div>
+          <hr/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

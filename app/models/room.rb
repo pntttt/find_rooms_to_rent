@@ -4,7 +4,7 @@ class Room < ApplicationRecord
   has_many :reservations
   has_many :guest_reviews
 
-  delegate :name, :to => :user, :allow_nil => true, :prefix => true
+  delegate :name, to: :user, allow_nil: true, prefix: true
 
   validates :home_type, presence: true
   validates :room_type, presence: true

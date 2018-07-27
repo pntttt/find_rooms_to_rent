@@ -26,9 +26,12 @@
                     <%= current_user.name %> <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#"><%= t("manage_listing") %></a></li>
-                <li><a href="#"><%= t("list_your_space") %></a></li>
-                <li><a href="#"><%= t("your_trips") %></a></li>
+                <li><%= link_to t("your_rooms"), rooms_path %></li>
+                <li><%= link_to t("add_room"), new_room_path %></li>
+                <li><%= link_to t("your_reservations"),
+                  reservations_path %></li>
+                <li><%= link_to t("your_trips"),
+                  trips_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to t("edit_profile"),
                   edit_user_path(current_user) %></li>
