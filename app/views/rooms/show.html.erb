@@ -12,6 +12,7 @@
         <%= @room.address %>
       </div>
       <div class="col-md-4 text-center">
+        <%= image_tag avatar_url(@room.user), class: "img-circle avatar-large" %><br/><br/>
         <%= @room.user_name %>
       </div>
     </div>
@@ -101,24 +102,28 @@
       <h3><%= t("address") %></h3>
       <div id="map" style="width: 100%; height: 400px"></div>
       <script src="https://maps.googleapis.com/maps/api/js"></script>
+      <%= render partial: "map", formats: [:js] %>
     </div>
 
-    <div class="row">
-      <h3><%= t("near_by") %></h3>
-      <% for room in @room.nearbys(10) %>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading preview">
-                <%= image_tag room.cover_photo(:medium) %>
-              </div>
-              <div class="panel-body">
-                <%= link_to room.name, room %><br/>
-                (<%= room.distance.round(2) %> kms away)
+    <div class="testimonial-group">
+      <div class="row">
+        <h3><%= t("near_by") %></h3>
+        <% for room in @room.nearbys(10) %>
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-heading preview">
+                  <%= image_tag room.cover_photo(:medium) %>
+                </div>
+                <div class="panel-body">
+                  <%= link_to room.name, room %><br/>
+                  (<%= room.distance.round(2) %> kms away)
+                </div>
               </div>
             </div>
-          </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+    <br/><br/><br/><br/>
   </div>
 
   <div class="col-md-4">
