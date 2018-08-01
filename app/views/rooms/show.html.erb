@@ -99,10 +99,23 @@
     <hr/>
 
     <div class="row">
+      <div class="col-md-12">
+        <h3>
+          <%= pluralize(@guest_reviews.count, t("reviews")) %>
+          <span id="average_rating"></span>
+        </h3>
+        <div class="container">
+          <div><%= render "reviews/guest_list" %></div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <hr/>
+
+    <div class="row">
       <h3><%= t("address") %></h3>
       <div id="map" style="width: 100%; height: 400px"></div>
       <script src="https://maps.googleapis.com/maps/api/js"></script>
-      <%= render partial: "map", formats: [:js] %>
     </div>
 
     <div class="testimonial-group">
@@ -130,3 +143,5 @@
     <%= render "reservations/form" %>
   </div>
 </div>
+
+<%= render partial: "show", formats: [:js] %>
