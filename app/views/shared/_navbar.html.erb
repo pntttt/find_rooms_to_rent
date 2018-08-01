@@ -14,35 +14,35 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#">
-            <%= t("become_a_host") %>
-          </a>
+          <button class="btn btn-form btn-small">
+            <%= link_to "Become a host", new_room_path, style: "color: white; text-decoration: none;" %>
+          </button>
         </li>
-          <% if logged_in? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                    role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="" alt="">
-                    <%= current_user.name %> <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to t("your_rooms"), rooms_path %></li>
-                <li><%= link_to t("add_room"), new_room_path %></li>
-                <li><%= link_to t("your_reservations"),
-                  reservations_path %></li>
-                <li><%= link_to t("your_trips"),
-                  trips_path %></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to t("edit_profile"),
-                  edit_user_path(current_user) %></li>
-                <li><%= link_to t(".logout"), logout_path,
-                  method: :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to t(".login"), login_path %></li>
-            <li><%= link_to t(".sign_up"), signup_path %></li>
-          <% end %>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                  role="button" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
+              <%= current_user.name %> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("your_rooms"), rooms_path %></li>
+              <li><%= link_to t("add_room"), new_room_path %></li>
+              <li><%= link_to t("your_reservations"),
+                reservations_path %></li>
+              <li><%= link_to t("your_trips"),
+                trips_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to t("edit_profile"),
+                edit_user_path(current_user) %></li>
+              <li><%= link_to t(".logout"), logout_path,
+                method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t(".login"), login_path %></li>
+          <li><%= link_to t(".sign_up"), signup_path %></li>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

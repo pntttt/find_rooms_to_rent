@@ -9,11 +9,14 @@
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU5Eypr-mIt9pW1nieA8g0yX8lBSpKAvc&libraries=places"></script>
   </head>
-
-  <%= render "shared/navbar" %>
-  <%= render "shared/message" %>
-  <body class="container">
-    <%= yield %>
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/message" %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
