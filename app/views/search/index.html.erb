@@ -1,0 +1,131 @@
+<div id="main">
+  <div id="left">
+    <!-- SEARCH PANEL -->
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <button id="filter" class="btn btn-default" data-toggle="collapse"
+          data-target="#collapsePanel">
+          <%= t "more_filters" %><i class="fa fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <br/>
+      <div class="collapse" id="collapsePanel">
+
+          <%= form_tag search_path, method: :get, remote: true do |f| %>
+
+              <div class="row">
+                <div class="col-md-8">
+                  <label><%= t "price_range" %>:</label>
+                  <div id="slider-range"></div>
+                </div>
+                <div class="col-md-2">
+                  <label><%= t "min_price" %>:</label>
+                  <%= text_field_tag :price_min, nil, class: "form-control" %>
+                </div>
+                <div class="col-md-2">
+                  <label><%= t "max_price" %>:</label>
+                  <%= text_field_tag :price_max, nil, class: "form-control" %>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <%= text_field_tag :start_date, params[:start_date],
+                    readonly: true, placeholder: t("start_date"),
+                    class: "form-control datepicker" %>
+                </div>
+                <div class="col-md-6">
+                  <%= text_field_tag :end_date, params[:end_date],
+                    readonly: true, placeholder: t("end_date"),
+                    class: "form-control datepicker" %>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <%= check_box_tag "room_type[]", "Entire" %>
+                  <%= t "entire_room" %>
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "room_type[]", "Private" %>
+                  <%= t "private" %>
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "room_type[]", "Share" %>
+                  <%= t "shared" %>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group select">
+                    <label><%= t "accommodate" %></label>
+                    <%= select_tag "space[accommodate]", options_for_select([["1", 1],
+                      ["2", 2], ["3", 3], ["4+", 4]]), id: "accommodate",
+                      prompt: "Select...", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group select">
+                    <label><%= t "bedrooms" %></label>
+                    <%= select_tag "space[bed_room]", options_for_select([["1", 1],
+                      ["2", 2], ["3", 3], ["4+", 4]]), id: "bed_room",
+                      prompt: "Select...", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group select">
+                    <label><%= t "bathrooms" %></label>
+                    <%= select_tag "space[bath_room]", options_for_select([["1", 1],
+                      ["2", 2], ["3", 3], ["4+", 4]]), id: "bath_rooms",
+                      prompt: "Select...", class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <%= check_box_tag "utilities[]", "is_tv" %><%= t "tv" %>
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "utilities[]", "is_kitchen" %>
+                  <%= t "kitchen" %>
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "utilities[]", "is_internet" %>
+                  <%= t "internet" %>
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "utilities[]", "is_heating" %>
+                  <%= t "heating" %>
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "utilities[]", "is_air" %>
+                  <%= t "air_conditioning" %>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="row text-center">
+                <%= submit_tag t("search"), class: "btn btn-form" %>
+              </div>
+          <% end %>
+      </div>
+      <br/>
+
+      <div class="row" id="room_listing">
+        <%= render partial: "rooms/rooms_list", locals: {rooms: @arr_rooms} %>
+      </div>
+
+    </div>
+  </div>
+
+<%= render partial: "search/datepicker", formats: [:js] %>
+<%= render partial: "search/filter", formats: [:js] %>

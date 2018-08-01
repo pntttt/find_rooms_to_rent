@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-6">
           <label><%= t"check_out" %></label>
-          <%= f.text_field :end_date, readonly: true, placeholder: t("end_date"), class: "form-control datepicker", disabled: true %>          
+          <%= f.text_field :end_date, readonly: true, placeholder: t("end_date"), class: "form-control datepicker", disabled: true %>
         </div>
       </div>
       <h4 class="message-alert text-center"><span id="message"></span></h4>
@@ -40,4 +40,4 @@
   </div>
 </div>
 
-<%= render partial: "reservations/date_picker", formats: [:js] %>
+<%= render partial: "reservations/datepicker", formats: [:js] %>
