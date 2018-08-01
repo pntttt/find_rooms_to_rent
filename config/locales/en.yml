@@ -87,3 +87,7 @@ en:
   guest_review: "Reviews From Guests"
   host_review: "Reviews From Hosts"
   add_review: "Add Review"
+  name: "Name"
+  email: "Email"
+  password: "Password"
+  phone_number: "Phone Number"

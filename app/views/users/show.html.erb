@@ -5,14 +5,9 @@
         <div id="user" class="space-4">
           <div>
             <div id="user-media-container" class="space-2">
-              <%= image_tag avatar_url(@user), class: "avatar-full" %>
+              <%= image_tag avatar_url(@user), class: "img-circle avatar-full" %>
             </div>
           </div>
-        </div>
-        <div class="panel space-4">
-            <div class="panel-header"><%= t "verified_info" %></div>
-            <div class="panel-body">
-            </div>
         </div>
       </div>
       <div class="col-lg-9 col-md-8 col-sm-s12">
@@ -50,7 +45,6 @@
       <%= render "reviews/guest_list" %>
     </div>
     <br/>
-
     <h4><%= t"host_review" %> (<%= @host_reviews.count %>)</h4>
     <div class="row">
       <%= render "reviews/host_list" %>
