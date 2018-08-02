@@ -11,8 +11,8 @@
   });
 
   $(function() {
-    $("#price_min").val('100');
-    $("#price_max").val('500');
+    $("#price_min").val('0');
+    $("#price_max").val('1000');
 
     $("#slider-range").slider({
       range: true,
@@ -24,8 +24,6 @@
         $("#price_max").val(ui.values[1]);
       }
     });
-
-    
 
     $(".ui-widget-header").css('background', '#00A699');
     $(".ui-state-default, .ui-widget-content").css('background', 'white');
