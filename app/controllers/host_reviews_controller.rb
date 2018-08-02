@@ -25,14 +25,15 @@ class HostReviewsController < ApplicationController
     params.require(:host_review).permit :comment,
       :star, :room_id, :reservation_id, :guest_id
   end
-  
+
   def check_reservation
     @reservation = Reservation.check_host_reservation(
       host_review_params[:reservation_id],
       host_review_params[:room_id],
-      host_review_params[:guest_id]).first
+      host_review_params[:guest_id]
+    ).first
     if @reservation.nil?
-      flash[:alert] =  t "noti_reservation_not_found"
+      flash[:alert] = t "noti_reservation_not_found"
       return redirect_back fallback_location: request.referer
     end
   end

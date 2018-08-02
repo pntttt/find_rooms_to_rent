@@ -17,18 +17,18 @@ class ReservationsController < ApplicationController
     @reservation.total = room.price * days
     @reservation.save
 
-    flash[:notice] = t"noti_book_success"
+    flash[:notice] = t "noti_book_success"
     redirect_to room
   end
 
   private
-    def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date)
-    end
+  def reservation_params
+    params.require(:reservation).permit(:start_date, :end_date)
+  end
 
-    def get_days
-      start_date = Date.parse(reservation_params[:start_date])
-      end_date = Date.parse(reservation_params[:end_date])      
-      ReservationsService.new(start_date, end_date).days
-    end
+  def get_days
+    start_date = Date.parse(reservation_params[:start_date])
+    end_date = Date.parse(reservation_params[:end_date])
+    ReservationsService.new(start_date, end_date).days
+  end
 end

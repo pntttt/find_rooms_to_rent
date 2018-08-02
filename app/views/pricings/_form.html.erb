@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span><i class="fa fa-bolt"></i> $<%= @room.price %></span>
+    <span class="pull-right"><%= t"per_night" %></span>
+  </div>
+  <div class="panel-body">
+    <%= form_for([@room, @room.reservations.new]) do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <label><%= t"check_in" %></label>
+          <%= f.text_field :start_date, readonly: true, placeholder: t("start_date"), class: "form-control datepicker" %>
+        </div>
+        <div class="col-md-6">
+          <label><%= t"check_out" %></label>
+          <%= f.text_field :end_date, readonly: true, placeholder: t("end_date"), class: "form-control datepicker", disabled: true %>
+        </div>
+      </div>
+      <h4 class="message-alert text-center"><span id="message"></span></h4>
+      <div id="preview" style="display: none">
+        <table class="reservation-table">
+          <tbody>
+            <tr>
+              <td><%= t"price" %></td>
+              <td class="text-right">$<%= @room.price %></td>
+            </tr>
+            <tr>
+              <td><%= t"night" %></td>
+              <td class="text-right">x<span id="reservation_nights"></span></td>
+            </tr>
+            <tr>
+              <td class="total"><%= t"total" %></td>
+              <td class="text-right">$<span id="reservation_total"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br/>
+      <%= f.submit t("book_now"), id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: "reservations/datepicker", formats: [:js] %>

@@ -42,9 +42,9 @@ a {
   }
 }
 
-.bg { 
+.bg {
   background-image: url("banner.jpg");
-  height: 100%; 
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -337,4 +337,30 @@ a {
   font-size: 15px;
   font-weight: 500;
   line-height: 25px;
+}
+
+#main {
+  height: 100%;
+  overflow: hidden;
+}
+
+#left {
+  padding: 10px 400px 10px 20px;
+  overflow: scroll;
+  height: 100%;
+}
+
+#right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 100%;
+}
+
+.map_price {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00A699;
 }

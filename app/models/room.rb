@@ -5,11 +5,16 @@ class Room < ApplicationRecord
   has_many :guest_reviews
 
   scope :activated, ->{where(active: true)}
-  scope :by_address, -> (addr){where('address LIKE ?', "%#{addr}%")}
-  scope :by_prices, ->(min_p = 0, max_p = 1000){where(price: min_p..max_p)}
-  scope :by_room_type, ->(types = nil){where(room_type: types) unless types == nil}
-  scope :by_space, ->(key, value){where("#{key}": value) unless value.empty?}
-  scope :by_utility, ->(utility){where("#{utility}": true)}
+  scope :by_prices, ->(min_p, max_p){where(price: min_p..max_p) if
+    min_p.present? && max_p.present?}
+  scope :filter_by, ->(key, value){where("#{key}": value)}
+  scope :near, ->(address){
+    if address.present?
+      near(address, 5, order: "distance")
+    else
+      all
+    end
+  }
   delegate :name, to: :user, allow_nil: true, prefix: true
 
   validates :home_type, presence: true
@@ -31,7 +36,7 @@ class Room < ApplicationRecord
   end
 
   def available? start_date, end_date
-    reservation.where(
+    reservations.where(
       "(? <= start_date AND start_date <= ?)
       OR (? <= end_date AND end_date <= ?)
       OR (start_date < ? AND ? < end_date)",
