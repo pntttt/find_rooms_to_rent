@@ -7,6 +7,7 @@ end
 
 gem "bcrypt", "3.1.12"
 gem "bootstrap-sass", "~> 3.3.6"
+gem 'cloudinary'
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "faker"
@@ -15,8 +16,9 @@ gem "geocoder", "~> 1.4"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "jquery-ui-rails"
-gem "mysql2", ">= 0.3.18", "< 0.6.0"
+gem 'mysql2', '~> 0.3.18'
 gem "paperclip", "~> 5.1.0"
+gem 'paperclip-cloudinary'
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.6"
 gem "rubocop", "~> 0.54.0", require: false

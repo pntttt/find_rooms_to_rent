@@ -13,6 +13,7 @@ class PhotosController < ApplicationController
     @room = @photo.room
     return flash[:alert] = t("noti_error") unless @photo.destroy
     @photos = Photo.where room_id: @room.id
+    Cloudinary::Api.delete_resources(@photos, :keep_original => true)
     respond_to :js
   end
 

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ctnewiiii
+  api_key: '496576442497365'
+  api_secret: 6A2H5eDM_sXO_VLh07ylU6G4k4E
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ctnewiiii
+  api_key: '496576442497365'
+  api_secret: 6A2H5eDM_sXO_VLh07ylU6G4k4E
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ctnewiiii
+  api_key: '496576442497365'
+  api_secret: 6A2H5eDM_sXO_VLh07ylU6G4k4E
+  enhance_image_tag: true
+  static_image_support: false
