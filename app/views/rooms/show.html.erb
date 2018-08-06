@@ -120,7 +120,7 @@
     <div class="testimonial-group">
       <div class="row">
         <h3><%= t("near_by") %></h3>
-        <% for room in @near_by_rooms %>
+        <% for room in @room.nearbys(10) %>
             <div class="col-md-4">
               <div class="panel panel-default">
                 <div class="panel-heading preview">
@@ -140,6 +140,7 @@
 
   <div class="col-md-4">
     <%= render "reservations/form" %>
+    <%= link_to t("update"), listing_room_path(@room), class: "btn btn-form" %>
   </div>
 </div>
 <%= render partial: "show", formats: [:js] %>

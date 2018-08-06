@@ -17,3 +17,5 @@
 //= require jquery-ui/widgets/slider
 //= require_tree .
 //= require toastr
+//= require moment 
+//= require fullcalendar

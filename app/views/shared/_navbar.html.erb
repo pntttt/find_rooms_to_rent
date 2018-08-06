@@ -68,6 +68,9 @@
         <li <% if current_page? rooms_path %> class="active" <% end %> >
           <%= link_to t("manage_listing"), rooms_path %>
         </li>
+        <li <% if current_page? host_calendar_path %> class="active" <% end %> >
+          <%= link_to t("host_calendar"), host_calendar_path %>
+        </li>
       </ul>
     </div>
   </nav>

@@ -1,19 +1,20 @@
 <% rooms.each do |room| %>
-    <div class="col-md-4">
-      <div class="panel panel-default">
+  <div class="col-md-4">
+    <div class="panel panel-default">
         <div class="panel-heading preview">
           <%= link_to image_tag(room.cover_photo :medium), room %><br/>
         </div>
         <div class="panel-body">
-        <% if room.active %>
-          <%= link_to room.name, room %><br/>
-        <% else %>
-          <%= link_to room.name, listing_room_path(room) %><br/>
-        <% end %>
-        $<%= room.price %> - <%= room.home_type %> -
-        <%= pluralize room.bed_room, "bed" %>
-        <div id="star_<%= room.id %>"></div> <%= pluralize room.average_rating, "review" %>
-      </div>
+          <% if room.active %>
+            <%= link_to room.name, room %><br/>
+          <% else %>
+            <%= link_to room.name, listing_room_path(room) %><br/>
+          <% end %>
+          $<%= room.price %> - <%= room.home_type %> -
+          <%= pluralize room.bed_room, "bed" %>
+          <div id="star_<%= room.id %>"></div>
+          <%= pluralize room.average_rating, "review" %>
+        </div>
     </div>
   </div>
   <%= render partial: "rooms/rooms_list", formats: [:js], locals: {room: room} %>

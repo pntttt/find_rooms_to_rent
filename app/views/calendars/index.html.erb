@@ -1,0 +1,22 @@
+<% if !@rooms.blank? %>
+  <div class="row">
+    <%= form_tag host_calendar_path, method: :get, class: "form-group" do %>
+      <div class="col-md-6 select">
+        <div class="form-group">
+          <label><%= t"your_rooms" %></label>
+          <%= select_tag :room_id, 
+            options_for_select(@rooms.collect {|u| [u.name, u.id]}, 
+            params[:room_id]), 
+            {
+              onchange: "$(this.form).submit()",
+              class: "form-control"
+            } 
+          %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="calendar"></div>
+<%= render partial: "calendar", formats: [:js] %>
