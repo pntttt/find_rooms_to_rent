@@ -142,5 +142,9 @@
     <%= render "reservations/form" %>
   </div>
 </div>
-
 <%= render partial: "show", formats: [:js] %>
+<% if current_user? @room.user %>
+  <%= link_to listing_room_path(@room), class: "float" do %>
+    <i class="fa fa-edit fa-2x"></i>
+  <% end %>
+<% end %>

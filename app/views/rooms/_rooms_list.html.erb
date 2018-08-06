@@ -5,10 +5,16 @@
           <%= link_to image_tag(room.cover_photo :medium), room %><br/>
         </div>
         <div class="panel-body">
+        <% if room.active %>
           <%= link_to room.name, room %><br/>
-          $<%= room.price %> - <%= room.home_type %> -
-          <%= pluralize room.bed_room, "bed" %>
-        </div>
+        <% else %>
+          <%= link_to room.name, listing_room_path(room) %><br/>
+        <% end %>
+        $<%= room.price %> - <%= room.home_type %> -
+        <%= pluralize room.bed_room, "bed" %>
+        <div id="star_<%= room.id %>"></div> <%= pluralize room.average_rating, "review" %>
       </div>
     </div>
+  </div>
+  <%= render partial: "rooms/rooms_list", formats: [:js], locals: {room: room} %>
 <% end %>

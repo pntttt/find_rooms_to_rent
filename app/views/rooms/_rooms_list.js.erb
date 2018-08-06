@@ -1,0 +1,7 @@
+<script>
+  $('#star_<%= room.id %>').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= room.average_rating %>
+  });
+</script>
