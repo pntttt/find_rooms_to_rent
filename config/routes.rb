@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "search", to: "search#index"
-  get '/auth/:provider/callback', to: "omniauth_callback#create"
-  get '/auth/failure', to: "omniauth_callback#failure"
+  get "/auth/:provider/callback", to: "omniauth_callback#create"
+  get "/auth/failure", to: "omniauth_callback#failure"
+  get "/change_locale/:locale", to: "settings#change_locale", as: :change_locale
   resources :users
   resources :rooms, except: [:edit] do
     member do
