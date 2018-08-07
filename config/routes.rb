@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback", to: "omniauth_callback#create"
   get "/auth/failure", to: "omniauth_callback#failure"
   get "/change_locale/:locale", to: "settings#change_locale", as: :change_locale
+  get '/auth/:provider/callback', to: "omniauth_callback#create"
+  get '/auth/failure', to: "omniauth_callback#failure"
+  get "dashboard", to: "dashboards#index"
   resources :users
   resources :rooms, except: [:edit] do
     member do

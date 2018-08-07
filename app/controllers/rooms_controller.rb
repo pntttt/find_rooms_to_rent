@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :load_room, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorised?, only: [:update]
+  before_action :is_authorised?, only: [:update, :edit]
 
   def show
     unless @room&.active then
